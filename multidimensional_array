@@ -1,0 +1,13 @@
+Да, в джава существуют многомерные массивы. 
+Максимальная разерность массива - 255. При привышении размерности на стадии компиляции возникнет ошибка.
+
+Тестирующий код:
+
+    public static void main(String[] args) {
+        int [][] testArray = new int[][]{
+            {1,2,3},
+            {3,4}
+        };
+
+        System.out.println(Arrays.deepToString(testArray));
+    }
