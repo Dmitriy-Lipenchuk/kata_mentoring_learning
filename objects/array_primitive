@@ -1,0 +1,35 @@
+Массив является объектом
+Когда мы передаём объект в метод, то передаётся ссылка на него 
+Следовательно в самом методы мы работаем не с копией, а соригинальным массивом
+Именно из-за этого меняются значения исходного массива
+
+С примитивами дела обстоят иначе, т.к внутри метода мы работаем с копией объекта, а не с самим объектом,
+то и само значнеие в main не меняется
+
+Тестирующий код:
+
+    public static void main(String[] args) {
+        Integer[] array = new Integer[]{1, 2, 3, 4, 5};
+
+        System.out.println(Arrays.toString(array));
+
+        changeArray(array);
+
+        System.out.println(Arrays.toString(array));
+
+        int primitive = Integer.MAX_VALUE;
+
+        changePrimitive(primitive);
+
+        System.out.println(primitive);
+    }
+
+    public static void changeArray(Integer[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = 0;
+        }
+    }
+
+    public static void changePrimitive(int primitive) {
+        primitive = 0;
+    }
