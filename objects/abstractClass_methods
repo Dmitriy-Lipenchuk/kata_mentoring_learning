@@ -1,0 +1,9 @@
+Да, может
+
+Тестирующий код: 
+
+public abstract class AbstractClass {
+    void hello () {
+        System.out.println("Hello!");
+    }
+}
