@@ -1,0 +1,12 @@
+Абстрактный класс может иметь конструктор, но при этом создать экзеспляр абстрактного класса нельзя.
+Такая возможность нужна для того, чтобы реализововать одинаковую логику в конструкторах классов-наследников
+
+public abstract class AbstractClass implements SomeInterface {
+    public AbstractClass () {
+
+    }
+
+    void hello () {
+        System.out.println("Hello!");
+    }
+}
