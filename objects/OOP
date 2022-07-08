@@ -1,0 +1,93 @@
+1) Наследование 
+Наследование позволяет наслоедовать функциональность одного класса другим.
+
+2) Полиморфизм 
+Полиморфизм - это способность предоставить тот же интерфейс для различных форм (типов данных), лежащих в основе.
+Это означает, что классы имеют различную функциональность, несмотря на то, что используют общий интерфейс и могут быть вызваны динамически
+через специальную ссылку класса. 
+
+Полиморфизм выражается в:
+- Переопределении метода
+- Перегрузке метода (статический полиморфизм)
+- Дженерики (параметрический полиморфизм)
+
+3) Инкапусляция
+Объект содержит данные и методы, которые с ними работают
+Сокрытие внутренный структуры объекта 
+
+4) Абстракция
+Освновной прицип ООП, позволяющщий работать с объектами не в даваясь в особенности их реализации  
+По сути можно сказать, что три предыдущих принципа являются абстракцией
+
+Рассмотрим пример, включающий в себя все эти принципы.
+
+- Наследование проявляется в наследовании всех классов от общего предка (Family)
+
+- Полиморфизм проявляется в переопределении метода sayHi() и в том, что мы можем поместить любой класс в 
+экземпляр типа Family
+
+- Инкапсуляция проявляется в сокрытии поля capital. С этим полем можно работать только с помошью методов
+chechCapital() и butNewHouse()
+
+- Абстракция проявляется в наличии общего класса Family. Отличие в том, что Абстракция - это сам класс Family,
+а полиморфизм - это наличие классов, наследующихся от Family
+
+class Family {
+    private static int capital = 100_000_000;
+    static String[] forefathers;
+
+    public void sayHi() {
+        System.out.println("we are family");
+    }
+
+    public void checkCapital() {
+        System.out.println("Our family capital = " + capital);
+    }
+
+    public void buyNewHouse() {
+        capital = 0;
+    }
+}
+
+class Daughter extends Family {
+    @Override
+    public void sayHi() {
+        System.out.println("I am dauther");
+    }
+}
+
+class Son extends Family {
+    @Override
+    public void sayHi() {
+        System.out.println("I am som");
+    }
+}
+
+class Father extends Family {
+    @Override
+    public void sayHi() {
+        System.out.println("I am father");
+    }
+}
+
+class Mother extends Family {
+    @Override
+    public void sayHi() {
+        System.out.println("I am mother");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Family[] family = new Family[]{new Daughter(), new Son(), new Father(), new Mother()};
+
+        for (Family member : family) {
+            member.sayHi();
+            member.checkCapital();
+            member.buyNewHouse();
+            member.checkCapital();
+            System.out.println();
+        }
+
+    }
+}
