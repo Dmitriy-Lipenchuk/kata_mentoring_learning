@@ -1,0 +1,9 @@
+Да, можно
+Для этого сущесвуют дефолтные методы
+
+public interface SomeInterface {
+
+    default void hello(){
+        System.out.print("Hello");
+    }
+}
