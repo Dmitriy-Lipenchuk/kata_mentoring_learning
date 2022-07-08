@@ -1,0 +1,18 @@
+Да, можно.
+
+Тистирующий код: 
+public interface SomeInterface {
+
+    static void imStatic() {
+        System.out.println("I am static method");
+    }
+
+    default void hello(){
+        System.out.print("Hello ");
+        imStatic();
+    }
+}
+
+Важно, что статические методы доступны только внутри интерфейса. Их нельзя вызвать или переопределить у 
+классов, реализующих этот интерфейс. Так же можно обратиться к статическому методу через Interface.staticMethod();
+ 
