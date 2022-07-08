@@ -1,0 +1,9 @@
+Да, можно. Такие поля обязательно будут public static final (константы)
+
+interface TestInterfce  {
+    int i = 0;
+    public static final int i2 = 0;
+}
+
+В данном примеере первая и вторая переменная объявлены абсолютно одинаково. 
+В интрфейсах необязательно прописывать public static final.
