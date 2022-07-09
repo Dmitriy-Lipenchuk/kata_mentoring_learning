@@ -1,0 +1,15 @@
+main может выкидывать любое исключение, но стоит понимать, что если в теле main
+произойдёт исключение, то программа завершится
+
+Тестирующий код завершится с ошибкой: 
+
+public class ChildClass {
+    
+    public static void main(String[] args) throws IOException {
+        randomMethod();
+    }
+
+    static void randomMethod() throws IOException {
+        throw new IOException();
+    }
+} 
