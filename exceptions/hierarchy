@@ -1,7 +1,7 @@
                                              throwable
                                     ┌────────────┴────────────┐
                                   Error                    Exception
-                                                 ┌────────────┴────────────┐
+                                (Uncecked)       ┌────────────┴────────────┐
                                           Runtime Exception         Checked Exception   
                                              (Uncecked)
                                                 
