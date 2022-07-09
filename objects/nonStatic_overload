@@ -1,0 +1,20 @@
+Это вообще нельзя назвать перегрузкой как мне кажется
+Если попытать перегрузить статик метод не статик методом, то в таком случае
+статик метод привязан к классу, а не статик метод привязан к инстансу класса
+
+public class ChildClass {
+
+    public static void main(String args[]) {
+        test();
+        ChildClass childClass = new ChildClass();
+        childClass.test("overload");
+    }
+
+    static void test() {
+        System.out.println("test");
+    }
+
+    void test(String s) {
+        System.out.println("test " + s);
+    }
+}
