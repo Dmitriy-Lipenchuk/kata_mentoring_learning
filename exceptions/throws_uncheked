@@ -1,0 +1,14 @@
+Да, можно
+
+Проверяющий код:
+
+public  class ChildClass {
+
+    public static void main(String[] args) {
+        randomMethod();
+    }
+
+    static void randomMethod() throws StackOverflowError {
+
+    }
+}
