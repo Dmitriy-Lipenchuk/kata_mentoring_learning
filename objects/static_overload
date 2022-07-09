@@ -1,0 +1,40 @@
+На перегрузку не накладывается ниаких ограничений, но переопределлить статический метод нельзя
+
+
+
+Тестирующий код:
+
+public class ChildClass extends SomeClass {
+
+    public static void main(String args[]) {
+        test();
+        test("overload");
+
+        ChildClass childClass = new ChildClass();
+        SomeClass someClass = new ChildClass();
+
+        childClass.doSomething(); // будет вызван метод ChildClass
+        someClass.doSomething(); // будет вызван метод SomeClass
+    }
+
+    static void test() {
+        System.out.println("test");
+    }
+
+    static void test(String s) {
+        System.out.println("test " + s);
+    }
+
+
+    static void doSomething() {
+        System.out.println("i am child");
+    }
+
+}
+
+class SomeClass {
+
+    static void doSomething () {
+        System.out.println("i am parent");
+    }
+}
