@@ -1,16 +1,12 @@
-В таком случае вылетит ошибка IOException, которуб обработает сооветсвующий блок
+В таком случае вылетит ошибка IOException, что приведёт к экстренному завершеню программы 
 
 Тестирующий код: 
 
 public class KataClass {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         try(InnerClass innerClass = new InnerClass()){
             //some logic
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
