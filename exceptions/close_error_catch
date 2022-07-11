@@ -1,0 +1,22 @@
+В таком случае вылетит ошибка IOException, которую обработает сооветсвующщий блок catch
+
+public class KataClass {
+
+    public static void main(String[] args) {
+        try(InnerClass innerClass = new InnerClass()){
+            //some logic
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static class InnerClass implements AutoCloseable{
+
+        @Override
+        public void close() throws IOException {
+            throw new IOException();
+        }
+    }
+}
