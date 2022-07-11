@@ -1,0 +1,28 @@
+да, можно
+
+код:
+
+public class KataClass {
+
+    public static void main(String[] args) {
+        try (FileInputStream fileInputStream = new FileInputStream("");
+             FileOutputStream fileOutputStream = new FileOutputStream("")) {
+            //some logic
+        } catch (FileNotFoundException e) {
+            try {
+                e.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            try {
+                e.printStackTrace();
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            } finally {
+                System.out.println("Finally bock");
+            }
+        }
+    }
+}
