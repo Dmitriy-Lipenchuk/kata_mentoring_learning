@@ -1,0 +1,17 @@
+Да, можно
+
+Тестирубщий код: 
+
+public class KataClass {
+
+    public static void main(String[] args) {
+        try (FileInputStream fileInputStream = new FileInputStream("");
+             FileOutputStream fileOutputStream = new FileOutputStream("")) {
+            //some logic
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
