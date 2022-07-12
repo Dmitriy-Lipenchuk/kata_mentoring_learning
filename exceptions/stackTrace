@@ -24,8 +24,8 @@ public class KataClass {
 
 Судить о информации, которую можно получить из StackTraceElement можно по его методам: 
 
-1) 	getClassName() - возвращает полное имя класса 
-2)  getFileName()  - возвращает имя файла
-3) 	getLineNumber() - вовзращает линию кода 
-4)  getMethodName() - возвращает имя метода
-5) 	isNativeMethod() - возвращает true или false если элемент StackTrace является native методом  
+1) getClassName() - возвращает полное имя класса 
+2) getFileName()  - возвращает имя файла
+3) getLineNumber() - вовзращает линию кода 
+4) getMethodName() - возвращает имя метода
+5) isNativeMethod() - возвращает true или false если элемент StackTrace является native методом  
