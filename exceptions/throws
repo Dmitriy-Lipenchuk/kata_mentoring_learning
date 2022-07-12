@@ -1,0 +1,18 @@
+Да, можно
+
+Проверяющий код:
+
+public class KataClass {
+
+    public static void main(String[] args) throws IOException {
+        try {
+            throwsMethod();
+        } catch (IOException e) {
+            throw e; // бросаем уже существующее исключение
+        }
+    }
+
+    static void  throwsMethod() throws IOException {
+        throw new IOException(); //бросаем исключение
+    }
+}
