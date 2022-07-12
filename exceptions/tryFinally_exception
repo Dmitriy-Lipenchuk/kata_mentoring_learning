@@ -1,0 +1,24 @@
+В таком случае исключение из try будет подавлено 
+
+Тестирующий код:
+
+public class KataClass {
+
+    public static void main(String[] args) throws IOException {
+        try {
+            throwsMethod();
+        } finally {
+            throw new FileNotFoundException();
+        }
+    }
+
+    static void  throwsMethod() throws IOException {
+        throw new IOException();
+    }
+}
+
+Результат работы программы: 
+Exception in thread "main" java.io.FileNotFoundException
+	at FileTreeTest2.kata.KataClass.main(KataClass.java:14)
+
+Как мы видим информации о первом исключении в стэк-трейса не осталось.
