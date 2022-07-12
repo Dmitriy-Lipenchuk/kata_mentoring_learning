@@ -1,0 +1,31 @@
+StackTrace описывает последовательность вызова методов до тех пор пока не произошла ошибка
+Чтобы получить StackTrace необходимо возывать у исключения  метод getStackTrace()
+
+StackTraceElement - представляет собой элемент стэк-трейса.
+Рассмотрим на примере. В результате работы программы было вызвано несколько методов:
+
+public class KataClass {
+
+    public static void main(String[] args) throws IOException {
+        anotherMethod();
+    }
+
+    static void anotherMethod() throws IOException {
+        someMethod();
+    }
+
+    static void someMethod() throws IOException {
+        throw new IOException();
+    }
+}
+
+В таком случае стэк-трейс будет содержать 3 элемента StackTraceElement (по количеству методов) , т.к каждый из них является элементом
+в цепочке стэк-трейса и содержит в себе информацию о конкретном методе (и не только).
+
+Судить о информации, которую можно получить из StackTraceElement можно по его методам: 
+
+1) 	getClassName() - возвращает полное имя класса 
+2)  getFileName()  - возвращает имя файла
+3) 	getLineNumber() - вовзращает линию кода 
+4)  getMethodName() - возвращает имя метода
+5) 	isNativeMethod() - возвращает true или false если элемент StackTrace является native методом  
