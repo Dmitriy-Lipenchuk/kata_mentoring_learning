@@ -16,7 +16,7 @@
 8) initCause(Throwable cause) - устаналивает причину (cause) у указанного исключения. Метод можно вызвать не более одного раза
 
 9) printStackTrace() - выводит стэк-трейс в стандарный поток вывода ошибок (значение переменной System.err)
-	printStackTrace(PrintStream s) - аналогично методу выше, но поток вывода задаётся c помошью PrintStream (вывод в консоль)
-  printStackTrace(PrintWriter s) - аналогично методу выше, но поток вывода задаётся c помошью PrintWriter (вывод в консоль, файл или любой другой поток)
+   printStackTrace(PrintStream s) - аналогично методу выше, но поток вывода задаётся c помошью PrintStream (вывод в консоль)
+   printStackTrace(PrintWriter s) - аналогично методу выше, но поток вывода задаётся c помошью PrintWriter (вывод в консоль, файл или любой другой поток)
 
 10) setStackTrace(StackTraceElement[] stackTrace) - задаёт стэк-трейс
