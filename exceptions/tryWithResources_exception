@@ -1,0 +1,39 @@
+В таком случае исключение из close будет подавлено 
+
+Тестирующий код: 
+
+public class KataClass {
+
+    public static void main(String[] args) throws Exception {
+            demoExceptionalResource();
+    }
+
+    public static class ExceptionalResource implements AutoCloseable {
+
+        public void processSomething() {
+            throw new IllegalArgumentException("Thrown from processSomething()");
+        }
+
+        @Override
+        public void close() throws Exception {
+            throw new NullPointerException("Thrown from close()");
+        }
+    }
+
+    public static void demoExceptionalResource() throws Exception {
+        try (ExceptionalResource exceptionalResource = new ExceptionalResource()) {
+            exceptionalResource.processSomething();
+        }
+    }
+}
+
+Результат работы программы:
+
+Exception in thread "main" java.lang.IllegalArgumentException: Thrown from processSomething()
+	at FileTreeTest2.kata.KataClass$ExceptionalResource.processSomething(KataClass.java:19)
+	at FileTreeTest2.kata.KataClass.demoExceptionalResource(KataClass.java:30)
+	at FileTreeTest2.kata.KataClass.main(KataClass.java:11)
+	Suppressed: java.lang.NullPointerException: Thrown from close()
+		at FileTreeTest2.kata.KataClass$ExceptionalResource.close(KataClass.java:24)
+		at FileTreeTest2.kata.KataClass.demoExceptionalResource(KataClass.java:29)
+		... 1 more
