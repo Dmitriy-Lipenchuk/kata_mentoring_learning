@@ -1,0 +1,14 @@
+Чтобы создать дирректорию нужно передать path в утильный метод  Files.createDirectory(directory)
+Чтобы создать вложенные дирректории нужно воспользоваться методом Files.createDirectories(directories)
+
+Тестирующий код:
+
+public class KataClass {
+    public static void main(String[] args) throws IOException {
+        Path directory = Path.of("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\directory");
+        Files.createDirectory(directory);
+
+        Path directories = Path.of("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\first\\second\\third\\forth");
+        Files.createDirectories(directories);
+    }
+}
