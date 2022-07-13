@@ -4,7 +4,7 @@ C помошью методы .createNewFile()
 
 public class KataClass {
     public static void main(String[] args) {
-        File file = new File("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\file.txt");
+        File file = new File("C:\\Users\\User\\Desktop\\KataDirectory\\file.txt");
         
         try {
             file.createNewFile();
