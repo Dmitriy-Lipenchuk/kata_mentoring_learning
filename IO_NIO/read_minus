@@ -1,0 +1,23 @@
+Присчитывании байта -1 будет записано значение 255
+
+Программа:
+
+public class KataClass {
+    public static void main(String[] args) throws IOException {
+        int currentByte;
+        byte[] bytes = new byte[]{-1, -1, -1, -1, -1, -1};
+
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+        while ((currentByte = byteArrayInputStream.read()) != -1) {
+            System.out.println(currentByte);
+        }
+    }
+}
+
+Вывод:
+255
+255
+255
+255
+255
+255
