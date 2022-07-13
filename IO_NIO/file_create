@@ -1,0 +1,16 @@
+C помошью методы .createNewFile()
+
+Тестирующий код:
+
+public class KataClass {
+    public static void main(String[] args) {
+        File file = new File("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\file.txt");
+        
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            System.out.println("Something went wrong");
+            e.printStackTrace();
+        }
+    }
+}
