@@ -1,0 +1,20 @@
+Удалить файл можно с помошью 2 метод
+В пакете IO для этого у экземпляра File можно вызвать метод .delete()
+
+При работе с пакетом NIO необходимо передать Path в утильный метод Files.delete(Path)
+
+Оба этих метода удалят директорию только в том случае  если она пуста
+
+Тестирующий код:
+
+public class KataClass {
+    public static void main(String[] args) throws IOException {
+        Path directory = Path.of("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\directory");
+        Files.delete(directory);
+
+        File file = new File("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\first");
+        System.out.println(file.delete());
+    }
+}
+
+Во втором случае попытка удалить вложенные дирректории ни к чему не приведёт 
