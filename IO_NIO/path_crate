@@ -1,0 +1,10 @@
+Для создания файла необходимо передать Path в статический метод Files.createFile()
+
+Тестирующий код:
+
+public class KataClass {
+    public static void main(String[] args) throws IOException {
+        Path path = Path.of("C:\\Users\\Бабулех\\Desktop\\KataDirectory\\someFile.txt");
+        Files.createFile(path);
+    }
+}
