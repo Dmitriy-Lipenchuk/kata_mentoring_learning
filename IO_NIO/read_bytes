@@ -1,0 +1,40 @@
+Для считывания байтов у InputStream сущесвует метод read()
+Он перегружен и имеет следующие вариации:
+
+1) read() - считывает следующий байт из потока. Если следующего байта нет возвращает -1
+
+2) read(byte[] bytes) - считывает байты в массив байтов. Если нет достукпных байтов возвращает -1, а иначе
+возвращает количество считанных байт
+
+3) read(byte[] bytes, int off, int len) - считывает байты в массив байтов начиная с запись с off элемента в массиве.
+Считывает len байтов. При считывании метод попытается считать len байтов, но если фактическое количество меньше, то 
+считается фактическое количество байт. Так же off + len <= bytes.lenght не долженны превышать количество элментов массива, 
+т.к в противном случае словим IndexOutOfBoundsException
+
+Тестирующий код: 
+
+public class KataClass {
+    public static void main(String[] args) throws IOException {
+        int firstByte;
+        byte[] someBytes = new byte[3];
+        byte[] lastBytes = new byte[10];
+        byte[] bytes = new byte[]{-1, 0, 1, 2, 3, 4};
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
+        
+        firstByte = byteArrayInputStream.read();
+        byteArrayInputStream.read(someBytes);
+        byteArrayInputStream.read(lastBytes, 3, 7);
+
+        System.out.println((byte) firstByte);
+        System.out.println(Arrays.toString(someBytes));
+        System.out.println(Arrays.toString(lastBytes));
+    }
+}
+
+Вывод:
+-1
+[0, 1, 2]
+[0, 0, 0, 3, 4, 0, 0, 0, 0, 0]
+
+Как можно заметить в последнем случае мы указали, что необходимо считать 7 байт, но в потоке осталось 
+только 2, так что было считано толбко 2
