@@ -1,0 +1,14 @@
+Чтобы создать дирректорию нужно восполизоваться методом mkdir()
+Чтобы создать вложенные дирректории нужно воспользоваться методом mkdirs()
+
+Тестирующий код:
+
+public class KataClass {
+    public static void main(String[] args) {
+        File file = new File("C:\\Users\\User\\Desktop\\KataDirectory\\testFolder");
+        file.mkdir();
+        
+        File folders = new File("C:\\Users\\User\\Desktop\\KataDirectory\\first\\second\\third\\forth");
+        folders.mkdirs();
+    }
+}
