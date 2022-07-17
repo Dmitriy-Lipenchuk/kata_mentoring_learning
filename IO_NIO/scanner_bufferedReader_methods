@@ -1,0 +1,48 @@
+Методы Scanner 
+
+1) close () - закрывает Scanner 
+
+2) delimiter() - возвращает Pattern, используемый Scanner для разделения 
+
+3) useDelimiter(Pattern pattern)
+	 useDelimiter(String pattern) - задаёт делиметр 
+   
+4) findInLine(Pattern pattern)
+   findInLine(String pattern) - ищет в строке стрингу согласно заданному шаблону  
+   
+5) findWithinHorizon(Pattern pattern, int horizon)
+   findWithinHorizon(String pattern, int horizon) - аналогичен методу выше, но ищёт не в текущей строке, а 
+до указанного "горизонта"
+
+6) hasNext() - возвращает true если Scanner имеет слудующий токен и false если наоброт
+У этого метода очень много перегрузок, но общая их суть состоит в том есть ли дальше токен удволетсворяющий 
+какому-либо условию. Например	hasNext(Pattern pattern) или hasNextDouble() суть понятна из названия.
+
+7) ioException() - вовзаращает последнюю ошибку, выкинутую считываемым Readeble 
+
+8) match() - возвращает последний match
+Например если мы до этого вызвали scanner.hasNext("String"), то после вызовал scanner.match() получим:
+java.util.regex.Matcher[pattern = String region = 0,25 lastmatch = String]
+
+9) next() - возвращает следующий токен 
+Метод так же как и hasNext() имеет много перегрузок суть которых сводится к добавлению какого-то условия
+Например: 	next(Pattern pattern) или 	nextFloat()
+
+10) radix() - возвращает систему счисления
+
+11) useRadix(int radix) - устанавливает указанную систему счисления
+
+12) remove() - всегда возвращает ошибку
+
+13) reset() - обнуляет состояние сканера. Состояние сканера это его : делиметр, локаль, система счисления
+Аналогично выполнению следующего кода: 
+   scanner.useDelimiter("\\p{javaWhitespace}+")
+          .useLocale(Locale.getDefault())
+          .useRadix(10);
+          
+14) skip(Pattern pattern)
+	  skip(String pattern) - пропускает данные указанные в patter
+    
+15) useLocale(Locale locale) - устанавливает локаль
+
+Методы BufferedReader
