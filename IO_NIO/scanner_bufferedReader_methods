@@ -64,6 +64,6 @@ java.util.regex.Matcher[pattern = String region = 0,25 lastmatch = String]
 
 8) ready() - говорит о готовности потока к чтению
 
-9) eset() - "откатывает" поток к последней метке
+9) reset() - "откатывает" поток к последней метке
 
 10) skip(long n) - пропускает n символов
