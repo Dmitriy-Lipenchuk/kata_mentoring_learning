@@ -45,4 +45,25 @@ java.util.regex.Matcher[pattern = String region = 0,25 lastmatch = String]
     
 15) useLocale(Locale locale) - устанавливает локаль
 
+
 Методы BufferedReader
+
+1) close() - закрывает ридер
+
+2) lines() - возвращает Stream<String> где стринг представляет собой считанную линию
+
+3) mark(int readAheadLimit) - отмечает позицию на которую можно вернуться с помошью reset()
+
+4) markSupported() - говорит о том поддерживает ли данный Stream метки
+
+5) read() - считывает один символ
+
+6) read(char[] cbuf, int off, int len) - считывает указаное количество символов начиная с указанной позиции в переданный массив
+
+7) readLine() - считывает линию
+
+8) ready() - говорит о готовности потока к чтению
+
+9) eset() - "откатывает" поток к последней метке
+
+10) skip(long n) - пропускает n символов
