@@ -1,0 +1,6 @@
+                                                Iterable                              Map
+                                                    │                                  
+                                                Collection                          
+                                    ┌───────────────┼───────────────┐                   
+                                  List             Set            Queue
+                                          
