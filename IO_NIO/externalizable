@@ -1,0 +1,61 @@
+Externalizable позволяет более гибко и эффективно производить сериализацию.
+Статик и файнал поля можно сериализовать с помошью Externalizable, но вот десеарилизовать final переменную не получится.
+Если в классе есть final переменная, то она должна или сразу же иметь какое-то значения или же сетиться в конструкторе. 
+Другими словами невозможно создать инстанс перменной без посеченного final поля.
+Далее необходимо понимать, что в отличии от Serializible Externalizable не использует рефлексию и всего лишь стетит
+поля с помошью метода readExternal(), а посколько поле final уже задано поменять ссылку на него не получится (единственный вариант
+попытаться изменить состояние ссылочной переменной, но это больше костыль)
+
+Рассмотрим пример:
+
+public class UserInfo implements Externalizable {
+
+    private String firstName;
+    private static String lastName;
+    private final String superSecretInformation;
+
+    public UserInfo(String firstName,String lastName, String superSecretInformation) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.superSecretInformation = superSecretInformation;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getSuperSecretInformation() {
+        return superSecretInformation;
+    }
+
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeObject(this.getFirstName());
+        out.writeObject(this.getLastName());
+        out.writeObject(this.getSuperSecretInformation());
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        firstName = (String) in.readObject();
+        lastName = (String) in.readObject();
+        superSecretInformation = (String) in.readObject(); //не получится десериализовать final поле (строка не скомпилируется)
+    }
+}
+
+В примере выше успешно получается сериализовать все поля, а вот с десеарилизацией проблемы. 
+В случае c final мы не можем взять и поменять ссылку на объект.
+Так же для успешной десериализации через Externalizable необходим дефолтный конструктор.
