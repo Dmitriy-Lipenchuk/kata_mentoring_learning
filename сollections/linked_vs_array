@@ -1,0 +1,84 @@
+Тестирующий код:
+
+Лучше методы вызвать поотдельности
+
+public class Main {
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        arrayListStart();
+//        arrayListMiddle();
+//        arrayListEnd();
+
+        System.out.println();
+
+        linkedListStart();
+//        linkedListMiddle();
+//        linkedListEnd();
+    }
+
+    static void arrayListMiddle() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        long time = System.nanoTime();
+        
+        for (int i = 0; i < 100_000; i++) {
+            arrayList.add(arrayList.size() / 2, i);
+        }
+        
+        System.out.println((System.nanoTime() - time) + " MiddleArrayList");
+    }
+
+    static void arrayListStart() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        long time = System.nanoTime();
+        
+        for (int i = 0; i < 100_000; i++) {
+            arrayList.add(0, i);
+        }
+        
+        System.out.println((System.nanoTime() - time) + " StartArrayList");
+    }
+
+    static void arrayListEnd() {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        long time = System.nanoTime();
+        
+        for (int i = 0; i < 100_000; i++) {
+            arrayList.add(arrayList.size(), i);
+        }
+        
+        System.out.println((System.nanoTime() - time) + " EndArrayList");
+    }
+
+    static void linkedListMiddle() {
+        LinkedList<Integer> arrayList = new LinkedList<>();
+        long time = System.nanoTime();
+        
+        for (int i = 0; i < 100_000; i++) {
+            arrayList.add(arrayList.size() / 2, i);
+        }
+        
+        System.out.println((System.nanoTime() - time) + " MiddleLinkedList");
+    }
+
+    static void linkedListStart() {
+        LinkedList<Integer> arrayList = new LinkedList<>();
+        long time = System.nanoTime();
+        
+        for (int i = 0; i < 100_000; i++) {
+            arrayList.add(0, i);
+        }
+        
+        System.out.println((System.nanoTime() - time) + " StartLinkedList");
+    }
+
+    static void linkedListEnd() {
+        LinkedList<Integer> arrayList = new LinkedList<>();
+        long time = System.nanoTime();
+        
+        for (int i = 0; i < 100_000; i++) {
+            arrayList.add(arrayList.size(), i);
+        }
+        
+        System.out.println((System.nanoTime() - time) + " EndLinkedList");
+    }
+}
