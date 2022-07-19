@@ -1,0 +1,23 @@
+Как реализацию интерфейса или переопределение методов класса непосредственно в коде.
+Например: Сomparator<?> comparator = new Comparator<>(){}; Так же это можно записать через лямбду, т.к 
+компаратор - функциональный интерфейс.
+
+Так же можно переопределить методы класса 
+Пример: 
+
+class TestClass {
+    public void test() {
+        System.out.println("I'm test class");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        TestClass testClass = new TestClass() {
+            @Override
+            public void test() {
+                System.out.println("I'm anonymous class");
+            }
+        };
+    }
+}
