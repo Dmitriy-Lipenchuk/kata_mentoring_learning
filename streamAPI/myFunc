@@ -1,7 +1,7 @@
 Код из Main:
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         testFunc(new MyFunc<Integer>() {
             @Override
             public Integer func(Integer v1, Integer v2) {
