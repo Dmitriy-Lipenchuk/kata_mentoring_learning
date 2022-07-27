@@ -1,6 +1,9 @@
-                                                Iterable                              Map
-                                                    │                                  
-                                                Collection                          
-                                    ┌───────────────┼───────────────┐                   
-                                  List             Set            Queue
-                                          
+                                                              Iterable                                                      Map
+                                                                 │                                                           │
+                                                             Collection                                                   SortedMap
+                                    ┌────────────────────────────┼────────────────────────────┐                              │
+                                  List                          Set                         Queue                       NavigableMap
+                           ┌────────┼────────┐       ┌───────────┼───────────┐         ┌──────┴──────┐                       │
+                      ArrayList LinkedList Vector HashSet  LinkedHashSet SortedSet   Deque      PriorityQueue             TreeMap
+                                             │                               │         │
+                                           Stack                          TreeSet  ArrayDeque
